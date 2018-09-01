@@ -1,0 +1,81 @@
+@import "_colors.scss";
+
+.table-dark {
+  background-color: $box-block;
+}
+
+.table {
+  border-radius: 8px;
+  
+  td {
+    font-weight: 300;
+  }
+}
+
+body {
+  background-color: $bg-black;
+}
+
+.crypto-type {
+  font-weight: 700;
+}
+
+.btn-primary {
+  background-color: $royal-blue;
+  border-color:  $royal-blue;
+  font-weight: 300;
+}
+
+.jumbotron {
+  background-color: $box-block;
+  color: #fff;
+  text-align: center;
+  font-family: 'Nunito';
+
+  strong {
+    color: $light-blue;
+  }
+}
+
+.center {
+  text-align: center;
+}
+
+.btn-outline-success {
+  border-color: $light-blue;
+  color: $light-blue;
+}
+
+.my-4 {
+  background-color: #fff;
+  width: 25%;
+}
+
+.thin {
+  font-weight: 300;
+}
+
+.header-row {
+  padding: 50px 0 50px 0;
+  text-align: center;
+}
+
+.card {
+  margin-bottom: 20px;
+  background-color: $box-block;
+  color: #fff;
+  -webkit-box-shadow: 10px 10px 5px -9px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px -9px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 5px -9px rgba(0, 0, 0, 0.75);
+
+  .card-text {
+    font-weight: 300;
+    margin-bottom: 10px;
+  }
+
+  .card-title {
+    color: $light-blue;
+    font-weight: 300;
+    font-family: 'Nunito';
+  }
+}
