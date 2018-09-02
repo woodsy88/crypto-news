@@ -1,15 +1,39 @@
-<h1>Latest Crypto News</h1>
-<p>Refresh to update news</p>
+<%= render 'layouts/home_banner' %>
+
+<div class="container">
+  <table class="table table-dark table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">24hr high</th>
+        <th scope="col">24hr low</th>
+        <th scope="col">Market Cap</th>
+      </tr>
+    </thead>
+    <% @prices["DISPLAY"].each do |key, value| %>
+      <tbody>
+        <tr>
+          <td class="crypto-type"><%= key %></td>
+          <td><%= value["USD"]["PRICE"] %></td>
+          <td><%= value["USD"]["HIGH24HOUR"] %></td>
+          <td><%= value["USD"]["LOW24HOUR"] %></td>
+          <td><%= value["USD"]["MKTCAP"] %></td>
+        </tr>
+      </tbody>
+    <% end %> 
+  </table>
+</div>
 
 <div class="container">
   <div class="row">
     <% for x in @news["Data"] %>
-    <div class="col-md-3">
+    <div class="col-md-4">
         <div class="card">
          <img class="card-img-top" src="<%= x["imageurl"] %>" alt="<%= x["source"] %>">
           <div class="card-body">
-            <h3 class="card-title"><%= x["title"] %></h3>
-            <div class="card-text small"><%= truncate x["body"], length: 500 %></div>
+            <h3 class="card-title"><%= truncate x["title"], length: 50 %></h3>
+            <div class="card-text small"><%= truncate x["body"], length: 200 %></div>
             <%= link_to ' view full article', x["url"], class: "btn btn-primary btn-block" %>
           </div>
         </div>
