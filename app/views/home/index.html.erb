@@ -11,6 +11,7 @@
         <th scope="col">Market Cap</th>
       </tr>
     </thead>
+  <% if @prices["DISPLAY"] %>
     <% @prices["DISPLAY"].each do |key, value| %>
       <tbody>
         <tr>
@@ -21,12 +22,16 @@
           <td><%= value["USD"]["MKTCAP"] %></td>
         </tr>
       </tbody>
-    <% end %> 
+    <% end %>
+  <% else %>
+    Please check back again later for prices
+  <% end %>
   </table>
 </div>
 
 <div class="container">
   <div class="row">
+  <% if @news["Data"] %>
     <% for x in @news["Data"] %>
     <div class="col-md-4">
         <div class="card">
@@ -38,6 +43,9 @@
           </div>
         </div>
     </div>
+    <% end %>
+    <% else %>
+      <div class="card">PLEASE CHECK BACK AGAIN LATER</div>
     <% end %>
   </div>
 </div>
