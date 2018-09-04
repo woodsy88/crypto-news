@@ -1,1 +1,25 @@
-<h2>Prices Page</h2>
+<div class="container">
+  <div class="row">
+      <div class="card">
+        <div class="card-body">
+        <% if @symbol %>
+          <% if @quote["Response"] %>
+              That currency does not exist, please try another
+          <% else %>
+            <% @quote["DISPLAY"].each do |key, value| %>
+              <h2 class="display-1"><%= key %></h2>
+              <h3 class=" display-4"><%= value["USD"]["PRICE"] %></h3>
+              <ul class="list-group">
+                <li class="list-group-item"> 24 hour high  <span class="divide">|</span> <%= value["USD"]["HIGH24HOUR"] %></li>
+                <li class="list-group-item">24 hour low <span class="divide">|</span> <%= value["USD"]["LOW24HOUR"] %></li>
+                <li class="list-group-item">Market Cap <span class="divide">|</span> <%= value["USD"]["MKTCAP"] %></li>
+              </ul>          
+            <% end %>
+          <% end %>
+          <% else %>
+            Please enter a sysmbol 
+          <% end %>
+        </div>
+      </div>
+  </div>
+</div>

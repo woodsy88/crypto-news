@@ -12,13 +12,10 @@
       <li class="nav-item">
         <%= link_to 'CryptoPrices', home_prices_path, class: "nav-link" %>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+      <%= form_tag home_prices_path, :method => 'POST', class: "form-inline my-2 my-lg-0" do %>
+        <%= text_field_tag 'sym', nil, placeholder: 'Enter Crypto Symbol', class: "form-control mr-sm-2" %>
+        <%= submit_tag 'Lookup', class: 'btn btn-outline-success my-2 my-sm-0' %>
+      <% end %>
   </div>
 </nav>
