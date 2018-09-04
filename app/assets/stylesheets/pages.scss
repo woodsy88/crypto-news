@@ -78,4 +78,20 @@ body {
     font-weight: 300;
     font-family: 'Nunito';
   }
+
+  .list-group {
+     background-color: $box-block;
+     color: #fff;
+  }
+
+    .list-group-item {
+      background-color: $box-block;
+      color: #fff;
+      font-weight: 300;
+    }
+
+    .divide {
+      color: $light-blue;
+      font-size: 20px;
+    }
 }
