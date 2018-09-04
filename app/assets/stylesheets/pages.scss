@@ -4,6 +4,21 @@
   background-color: $box-block;
 }
 
+.container {
+  padding-top: 30px;
+}
+
+.banner-form {
+  display: flex;
+  justify-content: center;
+}
+
+.alert {
+  margin-bottom: 0 !important;
+  display: flex;
+  justify-content: center;
+}
+
 .table {
   border-radius: 8px;
   

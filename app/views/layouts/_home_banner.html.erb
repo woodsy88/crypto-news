@@ -1,8 +1,15 @@
 
   <div class="jumbotron">
     <h1 class="thin">Crypto-grapher</h1>
-    <p class="display-4">The latest <strong>crypto prices</strong> and <strong>news</stron></p>
+    <p class="display-4">The latest <strong>crypto prices</strong> and <strong>news</strong></p>
     <hr class="my-4">
-    <p class="lead">
+    <p class="lead">Search Crypto by Symbol
     </p>
+    <div class="banner-form">
+      <%= form_tag home_prices_path, :method => 'POST', class: "form-inline my-2 my-lg-0" do %>
+        <%= text_field_tag 'sym', nil, placeholder: 'Enter Crypto Symbol', class: "form-control mr-sm-2" %>
+        <%= submit_tag 'Lookup', class: 'btn btn-outline-success my-2 my-sm-0' %>
+      <% end %>
+    </div>
+  
   </div>
