@@ -1,0 +1,20 @@
+<h3>Lookup</h3>
+
+<%= form_tag  home_lookup_path, :method => 'POST' do %>
+  <%= text_field_tag 'sym', nil, placeholdeer: 'Enter Crypto', size: 50 %>
+  <%= submit_tag 'Lookup Stock Quote' %>
+<% end %>
+
+<%# if symbol has been entered into form %>
+<% if @symbol %>
+
+  <% for x in @lookup_coin %>
+    <% if @symbol == x["symbol"] %>
+      <%= x["name"] %>
+      <%= x["rank"] %> 
+    <% end %>
+  <% end %>
+
+  <%= @symbol %> not found, try another ticker
+
+<% end %>

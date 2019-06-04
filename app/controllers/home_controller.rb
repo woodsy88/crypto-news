@@ -3,14 +3,15 @@ class HomeController < ApplicationController
   def index
     require 'net/http'
     require 'json'
+  
     
     #News Data
     # create url to call
     @url = 'https://min-api.cryptocompare.com/data/v2/news/?lang=EN'
     @uri = URI(@url)
-    # pass url to get response
+    # pass url to get response in jSON
     @response = Net::HTTP.get(@uri)
-    # parse the response
+    # parse the json response into a ruby hash
     @news = JSON.parse(@response)
 
     #Price Data
@@ -18,6 +19,14 @@ class HomeController < ApplicationController
     @prices_uri = URI(@prices_url)
     @prices_response = Net::HTTP.get(@prices_uri)
     @prices = JSON.parse(@prices_response)
+
+    # coin market data
+
+    @coin_url = 'https://api.coinmarketcap.com/v1/ticker/'
+    @coin_uri = URI (@coin_url)
+    @coin_response = Net::HTTP.get(@coin_uri)
+    @coins = JSON.parse(@coin_response)
+    @my_coins = ["BTC", "XRP", "ADA", "XLM", "STEEM",]
 
   end
 
@@ -41,5 +50,27 @@ class HomeController < ApplicationController
     end
   end
 
+  def lookup
+    require 'net/http'
+    require 'json'
+    
+    @coin_url = 'https://api.coinmarketcap.com/v1/ticker/'
+    @coin_uri = URI (@coin_url)
+    @coin_response = Net::HTTP.get(@coin_uri)
+    @lookup_coin = JSON.parse(@coin_response)
 
+    @symbol = params[:sym]
+    if @symbol
+      @symbol = @symbol.upcase
+    end
+
+
+    if @symbol == ""
+      @symbol = "please enter a currency"
+    end
+
+  end
+
+
+   
 end

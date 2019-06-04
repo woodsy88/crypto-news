@@ -7,15 +7,40 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+       <%= link_to 'Lookup', home_lookup_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
         <%= link_to 'CryptoPrices', home_prices_path, class: "nav-link" %>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
     </ul>
+
       <%= form_tag home_prices_path, :method => 'POST', class: "form-inline my-2 my-lg-0" do %>
         <%= text_field_tag 'sym', nil, placeholder: 'Enter Crypto Symbol', class: "form-control mr-sm-2" %>
         <%= submit_tag 'Lookup', class: 'btn btn-outline-success my-2 my-sm-0' %>
-      <% end %>
+      <% end %>    
+
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+      <a class="nav-link">Right Link 1</a>
+    </li>
+   <% if user_signed_in? %> 
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= current_user.full_name %></a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <%= link_to 'Edit Profile', edit_user_registration_path, class: 'dropdown-item' %>
+        <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+      </div>
+    </li>
+<% else # user not signed it %>
+    <li class="nav-item"><%= link_to 'Login', login_path, class: 'nav-link' %> </li>
+    <li class="nav-item"><%= link_to 'Signup', signup_path, class: 'nav-link' %> </li>
+<% end %>
+  </ul>
+
+
+
   </div>
 </nav>
