@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+        <div class="card">
+          <div class="card-body">
+            <%= form_for (@crypto) do |form| %>
+
+          <% if @crypto.errors.any? %>
+              <% @crypto.errors.full_messages.each do |error| %>
+                <%= alert_generator error %>
+              <% end %>
+            <% end %>
+
+              <div class="form-group">
+                <%= form.label :symbol %>
+                <%= form.text_field :symbol, class: "form-control" %>
+              </div>
+              
+              <div class="form-group">
+                <%= form.label :cost_per %>
+                <%= form.number_field :cost_per, value: number_to_currency(form.object.cost_per.to_f, delimiter: '', unit: ''), step: :any, class: "form-control" %>
+                
+              </div>
+              <div class="form-group">
+                <%= form.label :amount_owned %>
+                <%= form.number_field :amount_owned,  class: "form-control", step: :any %>
+              </div>     
+          
+
+            <div class="actions">
+                  <%= form.submit "Submit",  class: "btn btn-primary" %>
+            </div>            
+                     
+            <% end %>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

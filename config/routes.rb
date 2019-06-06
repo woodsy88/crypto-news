@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :cryptos
+  
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'
     get 'signup', to: 'devise/registrations#new'

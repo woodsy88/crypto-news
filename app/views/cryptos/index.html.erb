@@ -1,0 +1,9 @@
+<% @current_user_cryptos.each do |crypto| %>
+<%= crypto.id %>
+ <%= crypto.symbol %>
+ <%= link_to 'show', crypto_path(crypto) %>
+ <%= link_to fa_icon('trash'), crypto, method: :delete, data: { confirm: 'Are you sure you want to delete this post' }  %>
+
+
+<% end %>
+
