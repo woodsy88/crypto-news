@@ -24,7 +24,12 @@ class CryptosController < ApplicationController
 		end
   end
 
+  def edit
+    authorize @crypto
+  end
+
   def update
+    authorize @crypto
     if @crypto.update(crypto_params)
       redirect_to @crypto, notice: 'Your crypto was updated successfully'
     else
