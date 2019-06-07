@@ -13,22 +13,22 @@
 
               <div class="form-group">
                 <%= form.label :symbol %>
-                <%= form.text_field :symbol, class: "form-control" %>
+                <%= form.text_field :symbol, class: "form-control", placeholder: "ticker symbol" %>
               </div>
               
               <div class="form-group">
                 <%= form.label :cost_per %>
-                <%= form.number_field :cost_per, value: number_to_currency(form.object.cost_per.to_f, delimiter: '', unit: ''), step: :any, class: "form-control" %>
+                <%= form.number_field :cost_per, step: :any, class: "form-control", placeholder: "how much did you pay for 1 unit at time of purchase?" %>
                 
               </div>
               <div class="form-group">
                 <%= form.label :amount_owned %>
-                <%= form.number_field :amount_owned,  class: "form-control", step: :any %>
+                <%= form.number_field :amount_owned,  class: "form-control", step: :any, placeholder: "how many units did you buy?" %>
               </div>     
           
 
             <div class="actions">
-                  <%= form.submit "Submit",  class: "btn btn-primary" %>
+                  <%= form.submit "Add crypto to your portfolio",  class: "btn btn-primary" %>
             </div>            
                      
             <% end %>

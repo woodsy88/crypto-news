@@ -19,3 +19,16 @@
  @import "pages.scss";
  @import "_colors.scss";
  @import "gritter";
+
+
+ body {
+   color: white;
+ }
+
+ .table td {
+   text-align: left;   
+}
+
+ .table .center-td {
+   text-align: left;   
+}
