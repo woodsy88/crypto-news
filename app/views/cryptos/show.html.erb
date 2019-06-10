@@ -1,10 +1,33 @@
-<%= @crypto.symbol %>
-<%= link_to fa_icon('trash'), @crypto, method: :delete, data: { confirm: 'Are you sure you want to delete this post' }  %>
-
-<% for x in @lookup_cryptos %>
-    <% if @crypto.symbol == x["symbol"] %>
-          <h1><%= @crypto.symbol %></h1>
-          <h2><%= x["rank"] %></h2>
-          <h2><%= x["price_usd"] %></h2>
+<%# data from api stored in local variables %>
+<% for coin in @all_coins %>
+    <% if @crypto.symbol == coin["symbol"] %>
+        <% crypto_name = coin["name"] %>
+        <% crypto_rank = coin["rank"] %>
+        <% price_usd = coin["price_usd"] %>
+        <% market_cap_usd = coin["market_cap_usd"] %>
+        <% available_supply = coin["available_supply"] %>
+        <% total_supply = coin["total_supply"] %>
+        <% max_supply = coin["max_supply"] %>
+        <% percent_change_1h = coin["percent_change_1h"] %>
+        <% percent_change_24h = coin["percent_change_24h"] %>
+        <% percent_change_7d = coin["percent_change_7d"] %>
     <% end %>
 <% end %>
+
+
+
+<%= @crypto.symbol %>
+<%= crypto_name  %>
+<%= crypto_rank  %>
+<%= price_usd  %>
+<%= market_cap_usd  %>
+<%= available_supply  %>
+<%= total_supply %>
+<%= max_supply  %>
+<%= percent_change_1h  %>
+<%= percent_change_24h  %>
+<%= percent_change_7d  %>
+  
+
+<%= link_to fa_icon('trash'), @crypto, method: :delete, data: { confirm: 'Are you sure you want to delete this post' }  %>
+
